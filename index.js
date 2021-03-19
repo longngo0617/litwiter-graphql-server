@@ -13,6 +13,7 @@ const server =new ApolloServer({
     typeDefs,
     resolvers,
     context: ({ req }) => ({ req, pubsub }),
+    introspection:true,
     playground:true
 });
 
