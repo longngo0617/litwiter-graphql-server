@@ -13,6 +13,7 @@ const server =new ApolloServer({
     typeDefs,
     resolvers,
     context: ({ req }) => ({ req, pubsub }),
+    playground:true
 });
 
 mongoose.connect(MONGODB,{useNewUrlParser:true,useUnifiedTopology: true})
