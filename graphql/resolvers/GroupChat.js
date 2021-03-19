@@ -30,9 +30,11 @@ module.exports={
         async getGroupChat(_,{},context){
             try{
                 const user=checkAuth(context);
-                const group=await GroupChat.find({leader:user.username});
-                if(group){
-                    return group;
+                const groups=await GroupChat.find();
+                const group = groups.find(ele => ele.members.find(e => e.username == user.username))
+                console.log(group)
+                if(groups){
+                    return groups;
                 }
                 else throw new Error("nguoi dung nay k ton tai")
                 
